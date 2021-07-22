@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:login/bloc/login.bloc.dart';
 
 class LoginButton extends StatefulWidget {
   const LoginButton({Key? key}) : super(key: key);
@@ -8,6 +10,7 @@ class LoginButton extends StatefulWidget {
 }
 
 class _LoginButtonState extends State<LoginButton> {
+  final LoginController c = Get.find();
   var buttonColor = Colors.purpleAccent[700];
 
   void onTapCancel() {
@@ -25,6 +28,7 @@ class _LoginButtonState extends State<LoginButton> {
   void onTapUp() {
     setState(() {
       buttonColor = Colors.purpleAccent[700];
+      c.login();
     });
   }
 
