@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:login/bloc/login.bloc.dart';
 import 'package:login/components/login.button.dart';
 import 'package:login/components/login.field.dart';
 
 class LoginForm extends StatelessWidget {
-  const LoginForm({Key? key}) : super(key: key);
+  final LoginController c = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +13,11 @@ class LoginForm extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         InputField(
+          controller: c.usernameController,
           fieldLabel: 'Username',
         ),
         InputField(
+          controller: c.passwordController,
           fieldLabel: 'Password',
           isPassword: true,
         ),
