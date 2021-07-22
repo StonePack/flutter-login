@@ -4,10 +4,12 @@ class InputField extends StatefulWidget {
   const InputField({
     Key? key,
     required this.fieldLabel,
+    required this.controller,
     this.isPassword = false,
   }) : super(key: key);
 
   final String fieldLabel;
+  final TextEditingController controller;
   final bool isPassword;
 
   @override
@@ -36,6 +38,7 @@ class _InputFieldState extends State<InputField> {
       margin: EdgeInsets.symmetric(vertical: 10),
       width: 250,
       child: TextField(
+        controller: widget.controller,
         decoration: InputDecoration(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(
