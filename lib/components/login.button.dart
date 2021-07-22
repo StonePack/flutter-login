@@ -25,10 +25,10 @@ class _LoginButtonState extends State<LoginButton> {
     });
   }
 
-  void onTapUp() {
+  void onTapUp(BuildContext context) {
     setState(() {
       buttonColor = Colors.purpleAccent[700];
-      c.login();
+      c.login(context);
     });
   }
 
@@ -50,7 +50,7 @@ class _LoginButtonState extends State<LoginButton> {
           onTapDown();
         },
         onTapUp: (TapUpDetails details) {
-          onTapUp();
+          onTapUp(context);
         },
         child: Text(
           'LOGIN',
