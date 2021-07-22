@@ -15,6 +15,7 @@ export default function requestListener(req, res) {
                 body += chunk.toString();
             });
             req.on('end', () => {
+                // Quick and dirty with no actual check for content type
                 req.body = JSON.parse(body);
                 routeHandler(req, res);
             });

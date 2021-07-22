@@ -11,7 +11,11 @@ export default function routeHandler(req, res) {
             break;
         default:
             res.writeHead(404);
-            res.end('ERROR: Endpoint not found');
+            res.setHeader('Content-Type', 'application/json');
+            const error = {
+                error: 'endpoint not found'
+            }
+            res.end(JSON.stringify(error));
             break;
     }
 }
